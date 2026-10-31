@@ -288,6 +288,7 @@ table.lib td select { padding: 3px 6px; font-size: .82rem; width: auto; max-widt
         <div class="pre-params">
           <label class="field"><span data-i18n="preThr">静止阈值</span><input type="number" id="pre-thr" min="0.1" step="0.1" value="1.5"></label>
           <label class="field"><span data-i18n="preMin">最短静止（秒）</span><input type="number" id="pre-min" min="1" step="1" value="5"></label>
+          <label class="check small" style="align-self:end;padding-bottom:6px" data-i18n-title="preStabTitle"><input type="checkbox" id="pre-stab" checked> <span data-i18n="preStab">手抖补偿</span></label>
           <label class="field"><span data-i18n="preGroup">要标注的状态组</span><select id="pre-group"></select></label>
           <label class="field"><span data-i18n="preActive">活动片段自动标为</span><select id="pre-active"></select></label>
           <button type="button" class="primary" id="pre-run" disabled></button>
@@ -909,6 +910,7 @@ I18N.ko.shortcuts += "<br>여러 개체: Tab으로 전환　수식어: 표시되
 
 
 Object.assign(I18N.zh, {
+  preStab: "手抖补偿", preStabTitle: "先对齐整个画面的轻微晃动（手持拍摄的抖动），再比较前后画面，只把动物自己的动作算作活动。",
   bkTitle: "备份与恢复", bkHelp: "把行为表、全部记录和视频清单导出成一个 .json 文件，存进 U 盘或云盘。导入时默认合并：同一条记录保留较新的版本，适合把几个人的编码结果合在一起。视频文件本身不包含在备份里。",
   bkExport: "导出全部数据", bkImport: "从文件导入", bkReplace: "导入时替换现有数据（默认为合并）", bkLast: "上次备份：{t}", bkNever: "还没有备份过。建议定期备份。",
   bkSaved: "已导出：{n} 条记录、{v} 个视频。", bkBad: "这个文件不是本软件的备份文件。", bkConfirm: "替换会删除这里现有、而备份里没有的数据。确定的话请再选一次文件。", bkWorking: "正在导入…", bkDone: "导入完成：更新了 {n} 条记录、{v} 个视频。",
@@ -921,6 +923,7 @@ Object.assign(I18N.zh, {
   csvHelp: "这个页面不能直接下载文件。请复制下面的内容，粘贴到文本编辑器，存成 .csv（或 .json）文件。",
 });
 Object.assign(I18N.ja, {
+  preStab: "手ブレ補正", preStabTitle: "手持ち撮影による画面全体のわずかな揺れを先に揃えてから前後の画面を比べ、動物自身の動きだけを活動として数えます。",
   bkTitle: "バックアップと復元", bkHelp: "行動目録・全記録・動画リストを1つの .json ファイルに書き出し、USB メモリやクラウドに保存します。読み込みは既定で統合：同じ記録は新しい方を残すので、複数人のコーディング結果をまとめられます。動画ファイル自体は含まれません。",
   bkExport: "全データを書き出す", bkImport: "ファイルから読み込む", bkReplace: "読み込み時に既存データを置き換える（既定は統合）", bkLast: "前回のバックアップ：{t}", bkNever: "まだバックアップしていません。定期的なバックアップをおすすめします。",
   bkSaved: "書き出しました：記録 {n} 件、動画 {v} 本。", bkBad: "このソフトのバックアップファイルではありません。", bkConfirm: "置き換えると、ここにあってバックアップにないデータは削除されます。よろしければもう一度ファイルを選んでください。", bkWorking: "読み込み中…", bkDone: "読み込み完了：記録 {n} 件、動画 {v} 本を更新しました。",
@@ -933,6 +936,7 @@ Object.assign(I18N.ja, {
   csvHelp: "このページから直接ダウンロードはできません。下の内容をコピーし、テキストエディタに貼り付けて .csv（または .json）として保存してください。",
 });
 Object.assign(I18N.en, {
+  preStab: "Shake compensation", preStabTitle: "Aligns small whole-frame shifts (hand-held camera shake) before comparing frames, so only the animal's own movement counts as activity.",
   bkTitle: "Backup and restore", bkHelp: "Exports the ethogram, all records and the video list to one .json file you can keep on a USB drive or cloud storage. Importing merges by default, keeping the newer version of each record, so several coders' files can be combined. Video files are not included.",
   bkExport: "Export all data", bkImport: "Import from file", bkReplace: "Replace existing data on import (default: merge)", bkLast: "Last backup: {t}", bkNever: "No backup yet. Back up regularly.",
   bkSaved: "Exported {n} records and {v} videos.", bkBad: "This file is not a backup from this app.", bkConfirm: "Replacing deletes data here that is not in the backup. Choose the file again to confirm.", bkWorking: "Importing…", bkDone: "Import done: updated {n} records and {v} videos.",
@@ -945,6 +949,7 @@ Object.assign(I18N.en, {
   csvHelp: "This page cannot download files directly. Copy the text below, paste it into a text editor, and save it as a .csv (or .json) file.",
 });
 Object.assign(I18N.ko, {
+  preStab: "흔들림 보정", preStabTitle: "손으로 들고 찍을 때 생기는 화면 전체의 작은 흔들림을 먼저 맞춘 뒤 앞뒤 화면을 비교해, 동물 자신의 움직임만 활동으로 셉니다.",
   bkTitle: "백업과 복원", bkHelp: "행동 목록, 모든 기록, 동영상 목록을 .json 파일 하나로 내보내 USB나 클라우드에 보관합니다. 가져오기는 기본적으로 병합하며 같은 기록은 더 새로운 쪽을 남기므로 여러 사람의 코딩 결과를 합칠 수 있습니다. 동영상 파일은 포함되지 않습니다.",
   bkExport: "모든 데이터 내보내기", bkImport: "파일에서 가져오기", bkReplace: "가져올 때 기존 데이터 바꾸기(기본은 병합)", bkLast: "마지막 백업: {t}", bkNever: "아직 백업하지 않았습니다. 정기적으로 백업하세요.",
   bkSaved: "기록 {n}건, 동영상 {v}개를 내보냈습니다.", bkBad: "이 소프트웨어의 백업 파일이 아닙니다.", bkConfirm: "바꾸면 여기에는 있고 백업에는 없는 데이터가 삭제됩니다. 계속하려면 파일을 다시 선택하세요.", bkWorking: "가져오는 중…", bkDone: "가져오기 완료: 기록 {n}건, 동영상 {v}개를 갱신했습니다.",
@@ -1949,6 +1954,8 @@ const Logic = (() => {
   $("pre-group").onchange = () => { ls.set("oc_pre_group", $("pre-group").value); renderPreOptions(); };
   $("pre-active").onchange = () => ls.set("oc_pre_active", $("pre-active").value);
   $("seg-mode").onchange = () => { renderPre(); drawTimeline(); };
+  if (ls.get("oc_pre_stab") === "0") $("pre-stab").checked = false;
+  $("pre-stab").onchange = () => ls.set("oc_pre_stab", $("pre-stab").checked ? "1" : "0");
 
   function renderPre() {
     const pr = cur?.pre;
@@ -1956,7 +1963,7 @@ const Logic = (() => {
     $("pre-confirm").hidden = !preConfirm;
     $("pre-run").textContent = pr ? T("preRerun") : T("preRun");
     if (!pr) { $("pre-sum").textContent = ""; return; }
-    $("pre-thr").value = pr.thr; $("pre-min").value = pr.minDur;
+    $("pre-thr").value = pr.thr; $("pre-min").value = pr.minDur; if (typeof pr.stab === "boolean") $("pre-stab").checked = pr.stab;
     const labeled = new Set(cur.events.filter((e) => e.seg && (e.subj ?? null) === (focalSubj() ?? null)).map((e) => e.seg));
     const n = pr.segs.length, m = pr.segs.filter((x) => labeled.has(x.id)).length;
     const still = pr.segs.filter((x) => x.kind === "still").length;
@@ -2005,6 +2012,57 @@ const Logic = (() => {
   const work = document.createElement("canvas");
   const wctx = work.getContext("2d", { willReadFrequently: true });
   const seekProbe = (t) => new Promise((res) => { const done = () => { probe.removeEventListener("seeked", done); res(); }; probe.addEventListener("seeked", done); probe.currentTime = t; });
+  const fwork = document.createElement("canvas");
+  const fctx = fwork.getContext("2d", { willReadFrequently: true });
+  const Stab = {
+    // 灰度化 + 3×3 均值模糊（减少噪点和亚像素抖动的影响）
+    gray(ctx, w, h) {
+      const px = ctx.getImageData(0, 0, w, h).data, g = new Float32Array(w * h), o = new Float32Array(w * h);
+      for (let j = 0, k = 0; j < px.length; j += 4, k++) g[k] = 0.299 * px[j] + 0.587 * px[j + 1] + 0.114 * px[j + 2];
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        let s = 0, n = 0;
+        for (let yy = Math.max(0, y - 1); yy <= Math.min(h - 1, y + 1); yy++) for (let xx = Math.max(0, x - 1); xx <= Math.min(w - 1, x + 1); xx++) { s += g[yy * w + xx]; n++; }
+        o[y * w + x] = s / n;
+      }
+      return o;
+    },
+    half(a, w, h) {
+      const w2 = w >> 1, h2 = h >> 1, o = new Float32Array(w2 * h2);
+      for (let y = 0; y < h2; y++) for (let x = 0; x < w2; x++) { const i = 2 * y * w + 2 * x; o[y * w2 + x] = (a[i] + a[i + 1] + a[i + w] + a[i + w + 1]) / 4; }
+      return o;
+    },
+    // 平移 (dx,dy) 后的差异；差值截断在 25，避免动物本身的大幅变化左右对齐结果
+    cost(a, b, w, h, dx, dy) {
+      let s = 0, n = 0;
+      const x0 = Math.max(0, dx), x1 = Math.min(w, w + dx), y0 = Math.max(0, dy), y1 = Math.min(h, h + dy);
+      for (let y = y0; y < y1; y++) { const rb = y * w, ra = (y - dy) * w - dx; for (let x = x0; x < x1; x++) { const d = Math.abs(b[rb + x] - a[ra + x]); s += d < 25 ? d : 25; n++; } }
+      return n > w * h * 0.5 ? s / n : Infinity;
+    },
+    // 估计整个画面的平移：先在半分辨率粗搜，再在原分辨率细搜，最后用抛物线插值得到亚像素位移
+    shift(a, b, w, h) {
+      const w2 = w >> 1, h2 = h >> 1, a2 = Stab.half(a, w, h), b2 = Stab.half(b, w, h);
+      const M = Math.max(2, Math.ceil(w2 * 0.08));
+      let best = [0, 0], bc = Infinity;
+      for (let dy = -M; dy <= M; dy++) for (let dx = -M; dx <= M; dx++) { const c = Stab.cost(a2, b2, w2, h2, dx, dy); if (c < bc) { bc = c; best = [dx, dy]; } }
+      let fx = best[0] * 2, fy = best[1] * 2; bc = Infinity;
+      for (let dy = fy - 2; dy <= fy + 2; dy++) for (let dx = fx - 2; dx <= fx + 2; dx++) { const c = Stab.cost(a, b, w, h, dx, dy); if (c < bc) { bc = c; best = [dx, dy]; } }
+      [fx, fy] = best;
+      const sub = (cm, c0, cp) => { const d = cm - 2 * c0 + cp; return isFinite(d) && d > 0 ? Math.max(-0.5, Math.min(0.5, (cm - cp) / (2 * d))) : 0; };
+      return [fx + sub(Stab.cost(a, b, w, h, fx - 1, fy), bc, Stab.cost(a, b, w, h, fx + 1, fy)), fy + sub(Stab.cost(a, b, w, h, fx, fy - 1), bc, Stab.cost(a, b, w, h, fx, fy + 1))];
+    },
+    // 当前画面内框 (ix,iy,iw,ih) 与“按位移对齐后的上一画面”的平均差异（双线性取样，越界的像素不计）
+    diff(prev, cur, PW, PH, ix, iy, iw, ih, dx, dy) {
+      let s = 0, n = 0;
+      for (let y = iy; y < iy + ih; y++) for (let x = ix; x < ix + iw; x++) {
+        const sx = x - dx, sy = y - dy;
+        if (sx < 0 || sy < 0 || sx > PW - 1 || sy > PH - 1) continue;
+        const x0 = Math.floor(sx), y0 = Math.floor(sy), x1 = Math.min(PW - 1, x0 + 1), y1 = Math.min(PH - 1, y0 + 1), fx = sx - x0, fy = sy - y0;
+        const v = (prev[y0 * PW + x0] * (1 - fx) + prev[y0 * PW + x1] * fx) * (1 - fy) + (prev[y1 * PW + x0] * (1 - fx) + prev[y1 * PW + x1] * fx) * fy;
+        s += Math.abs(cur[y * PW + x] - v); n++;
+      }
+      return n ? s / n : 0;
+    },
+  };
 
   $("pre-run").onclick = async () => {
     if (!cur || !videoUrl || preRunning) return;
@@ -2025,19 +2083,33 @@ const Logic = (() => {
       const dur = probe.duration;
       const vw0 = probe.videoWidth || 16, vh0 = probe.videoHeight || 9;
       const R = roi || { x: 0, y: 0, w: 1, h: 1 };
-      const sx = R.x * vw0, sy = R.y * vh0, sw = Math.max(2, R.w * vw0), sh = Math.max(2, R.h * vh0);
+      const stab = $("pre-stab").checked;
+      const sw = Math.max(2, R.w * vw0), sh = Math.max(2, R.h * vh0);
       const W = 96, H = Math.max(24, Math.round(96 * sh / sw));
-      work.width = W; work.height = H;
+      // 补偿手抖时，在检测范围四周多读一圈画面，对齐后仍有像素可比
+      const PAD = stab ? 0.08 : 0;
+      const pl = Math.min(R.x, PAD), pr = Math.min(1 - R.x - R.w, PAD), pt = Math.min(R.y, PAD), pb = Math.min(1 - R.y - R.h, PAD);
+      const kx = W / sw, ky = H / sh;
+      const qx = (R.x - pl) * vw0, qy = (R.y - pt) * vh0, qw = (R.w + pl + pr) * vw0, qh = (R.h + pt + pb) * vh0;
+      const PW = Math.max(W, Math.round(qw * kx)), PH = Math.max(H, Math.round(qh * ky));
+      const ix = Math.round(pl * vw0 * kx), iy = Math.round(pt * vh0 * ky);
+      work.width = PW; work.height = PH;
+      const FW = 128, FH = Math.max(16, Math.round(128 * vh0 / vw0));
+      fwork.width = FW; fwork.height = FH;
       const step = Math.max(0.5, dur / 2000);
-      let prev = null; const raw = [];
+      let prev = null, prevF = null; const raw = [];
       for (let t = 0; t < dur; t += step) {
         await seekProbe(t);
-        wctx.drawImage(probe, sx, sy, sw, sh, 0, 0, W, H);
-        const px = wctx.getImageData(0, 0, W, H).data;
-        const gray = new Float32Array(W * H);
-        for (let j = 0, k = 0; j < px.length; j += 4, k++) gray[k] = 0.299 * px[j] + 0.587 * px[j + 1] + 0.114 * px[j + 2];
-        if (prev) { let sum = 0; for (let k = 0; k < gray.length; k++) sum += Math.abs(gray[k] - prev[k]); raw.push([t, (sum / gray.length) / 255 * 100 / step]); }
-        prev = gray;
+        wctx.drawImage(probe, qx, qy, qw, qh, 0, 0, PW, PH);
+        const gray = Stab.gray(wctx, PW, PH);
+        let full = null;
+        if (stab) { fctx.drawImage(probe, 0, 0, vw0, vh0, 0, 0, FW, FH); full = Stab.gray(fctx, FW, FH); }
+        if (prev) {
+          let dx = 0, dy = 0;
+          if (stab) { const [fx, fy] = Stab.shift(prevF, full, FW, FH); dx = fx * (vw0 / FW) * kx; dy = fy * (vh0 / FH) * ky; }
+          raw.push([t, Stab.diff(prev, gray, PW, PH, ix, iy, W, H, dx, dy) / 255 * 100 / step]);
+        }
+        prev = gray; prevF = full;
         fill.style.width = `${Math.min(100, (t / dur) * 100)}%`;
       }
       const samples = raw.map(([t], i) => {
@@ -2050,7 +2122,7 @@ const Logic = (() => {
       // 只保存用于显示的精简活动量曲线（每段取最大值），避免记录过大
       const MAXP = 400, bucket = Math.max(1, Math.ceil(samples.length / MAXP)), slim = [];
       for (let i = 0; i < samples.length; i += bucket) { const part = samples.slice(i, i + bucket); slim.push([part[0][0], Math.max(...part.map((q) => q[1]))]); }
-      cur.pre = { thr, minDur, step: Logic.round(step, 3), group, samples: slim, segs, roi: roi || null };
+      cur.pre = { thr, minDur, stab, step: Logic.round(step, 3), group, samples: slim, segs, roi: roi || null };
       cur.events = events;
       cur.duration = Logic.round(dur, 3);
       $("seg-mode").checked = true;
